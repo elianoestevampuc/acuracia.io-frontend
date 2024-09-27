@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Style padrão da página. -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Style do bootstrap. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Acuracia.io</title>
+</head>
+
+<body>
+    <!-- Header da página com a barra superior. -->
+    <header>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="/"
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                    <span class="fs-4">Acuracia.io</span>
+                </a>
+            </header>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <button type="button" class="btn btn-primary  w-100" onclick="carregarDados()">
+                        Carregar Dados
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-primary  w-100" onclick="abrirModalCadastroPessoa()">
+                        Cadastrar
+                    </button>
+                </div>
+                <div class="col-3"></div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-primary  w-100" onclick="processar()">
+                        Calcular Acurácia
+                    </button>
+                </div>
+                <div class="col-6 text-center">
+                    <div id="dados-header" style="display: none;"></div>
+                    <div id="dados-content" style="overflow-y: scroll;height: 450px;overflow-x: hidden;display: none;">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div id="resultado-header" style="display: none;">RESULTADO</div>
+                    <div id="resultado" class="resultado"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de cadastro de pessoa. -->
+    <div class="modal fade" id="modalCadastroPessoa" tabindex="-1" aria-labelledby="labelCadastroPessoa"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="labelCadastroPessoa">Cadastrar</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="idade" class="form-label">Idade:</label>
+                            <input type="text" class="form-control" id="idade" aria-describedby="idade" placeholder="">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ictericia" class="form-label">Teve ictericia?</label>
+                            <select id="ictericia" class="form-select">
+                                <option selected value="0">Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="autismoFamilia" class="form-label">Autismo na familia?</label>
+                            <select id="autismoFamilia" class="form-select">
+                                <option selected value="0">Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="autista" class="form-label">É autista?</label>
+                            <select id="autista" class="form-select">
+                                <option selected value="0">Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success" onclick="validarCadastro()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lib JS do bootstrap. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Libs JS's da aplicação. -->
+    <script src="index.js"></script>
+</body>
+
+</html>
